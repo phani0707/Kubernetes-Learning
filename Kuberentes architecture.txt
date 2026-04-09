@@ -1,0 +1,144 @@
+Introduction
+
+Kubernetes (K8s) is a container orchestration platform used to manage, deploy, and scale containerized applications. It has become a core part of modern DevOps because applications today are built using microservices and containers.
+
+Before learning Kubernetes, it is important to understand Docker, as Kubernetes works on top of containers.
+
+Docker vs Kubernetes
+
+Docker is a container platform that allows you to create and run containers.
+Kubernetes, on the other hand, is a container orchestration platform that manages containers at scale.
+
+In simple terms:
+
+Docker helps you run containers
+Kubernetes helps you manage containers across multiple systems
+Nature of Containers
+
+Containers are ephemeral, which means they are short-lived.
+They can be created and destroyed at any time.
+Because of this, managing them manually becomes difficult at scale.
+
+Problems with Docker
+1. Single Host Limitation
+
+Docker usually runs on a single machine.
+If too many containers are running on that machine, resource issues can occur.
+
+For example:
+If one container uses too much memory, other containers may not get enough resources and may crash.
+
+2. No Auto-Healing
+
+If a container crashes in Docker, it will remain down until someone manually restarts it.
+This is not practical in production environments.
+
+3. No Auto-Scaling
+
+When traffic increases, new containers must be created manually.
+This requires human intervention and is not efficient.
+
+4. Limited Enterprise Features
+
+Docker alone does not provide advanced features like:
+
+Load balancing
+API gateways
+Advanced networking
+Why Kubernetes?
+
+Kubernetes solves all the above problems and provides automation.
+
+Kubernetes Solutions
+Cluster Architecture
+
+Instead of running on a single machine, Kubernetes runs on a cluster of multiple nodes.
+
+If one node fails, applications can be moved to another node automatically.
+
+Auto-Healing
+
+Kubernetes continuously monitors applications.
+
+If a pod (container group) fails:
+
+It is automatically restarted or replaced
+No manual intervention is needed
+Auto-Scaling
+
+Kubernetes can automatically scale applications using Horizontal Pod Autoscaler (HPA).
+
+It increases or decreases the number of pods based on:
+
+CPU usage
+Memory usage
+Other metrics
+Enterprise-Level Platform
+
+Kubernetes provides advanced features such as:
+
+Load balancing
+Ingress controllers
+Custom Resource Definitions (CRDs)
+Kubernetes Architecture
+
+Kubernetes follows a Master-Worker (Control Plane - Data Plane) architecture.
+
+Control Plane (Master Node)
+
+The control plane acts as the brain of Kubernetes.
+
+API Server
+Entry point of Kubernetes
+Handles all requests from users and systems
+Scheduler
+Decides which node should run a pod
+Based on resource availability
+etcd
+A key-value database
+Stores cluster configuration and state
+Controller Manager
+Ensures the system maintains the desired state
+Example:
+If 2 pods are required and 1 fails, it creates another one
+Cloud Controller Manager
+Connects Kubernetes with cloud providers like AWS, Azure, and GCP
+Helps in creating cloud resources such as load balancers
+Data Plane (Worker Nodes)
+
+Worker nodes are responsible for running applications.
+
+Pod
+Smallest unit in Kubernetes
+Contains one or more containers
+Containers inside a pod share network and storage
+
+Important:
+Kubernetes manages pods, not containers directly.
+
+Kubelet
+Agent running on each worker node
+Ensures that pods are running properly
+Kube-Proxy
+Handles networking inside the cluster
+Manages IP addresses and load balancing
+Container Runtime
+Software that runs containers
+Examples:
+containerd
+CRI-O
+Docker
+Load Balancing
+
+Kubernetes distributes traffic across multiple pods.
+This ensures that no single pod is overloaded.
+
+Key Takeaways
+Containers are temporary and short-lived
+Kubernetes automates container management
+It provides:
+High availability
+Fault tolerance
+Scalability
+Kubernetes manages pods, not containers directly
+It ensures that applications always run in the desired state
