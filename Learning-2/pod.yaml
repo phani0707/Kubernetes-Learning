@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: habitflow
+spec:
+  containers:
+  - name: habitflow
+    image: phaneendra00/habitflow:latest
+    ports:
+    - containerPort: 80

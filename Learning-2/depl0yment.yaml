@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: habitflow
+  labels:
+    app: habbitflow
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: habitflow
+  template:
+    metadata:
+      labels:
+        app: habitflow
+    spec:
+      containers:
+      - name: habitflow
+        image: phaneendra00/habitflow:latest
+        ports:
+        - containerPort: 80
